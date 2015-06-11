@@ -1,0 +1,64 @@
+// SETTINGS
+
+$grid-base: 12 !default;
+$grid-flex: true !default; // Useless for now
+
+$width-xxs:   480px !default;
+$width-xs:    620px !default;
+$width-s:     768px !default;
+$width-m:     980px !default;
+$width-l:    1024px !default;
+$width-xl:   1280px !default;
+$width-xxl:  1440px !default;
+
+
+// MEDIA QUERIES
+
+$mq-xxs:    "(min-width: #{$width-xxs}) and (max-width: #{$width-xs - 1px})";
+$mq-xxs-up: "(min-width: #{$width-xxs})";
+$mq-xs:     "(min-width: #{$width-xs}) and (max-width: #{$width-s - 1px})";
+$mq-xs-up:  "(min-width: #{$width-xs})";
+$mq-s:      "(min-width: #{$width-s}) and (max-width: #{$width-m - 1px})";
+$mq-s-up:   "(min-width: #{$width-s})";
+$mq-m:      "(min-width: #{$width-m}) and (max-width: #{$width-l - 1px})";
+$mq-m-up:   "(min-width: #{$width-m})";
+$mq-l:      "(min-width: #{$width-l}) and (max-width: #{$width-xl - 1px})";
+$mq-l-up:   "(min-width: #{$width-l})";
+$mq-xl:     "(min-width: #{$width-xl}) and (max-width: #{$width-xxl - 1px})";
+$mq-xl-up:  "(min-width: #{$width-xl})";
+$mq-xxl:    "(min-width: #{$width-xxl}))";
+$mq-xxl-up: $mq-xxl;
+
+
+// MIXINS
+
+@mixin Grid($direction: 'horizontal', $reverse: false) {
+    @if $grid-flex {
+        display: flex;
+        flex-wrap: wrap;
+        @if $direction == 'horizontal' {
+            flex-direction: if($reverse, row-reverse, row);
+        } @elseif $direction == 'vertical' {
+            flex-direction: if($reverse, column-reverse, column);
+        }
+    }
+}
+
+@mixin Grid__block($size: 'auto', $mq: null) {
+    $base: if(length($size) == 3, nth($size, 3), $grid-base);
+    $width: auto;
+
+    @if $size == 'auto' {
+        flex-grow: 1;
+    } @else {
+        $width: unquote((nth($size, 1) / $base * 100) + '%');
+    }
+
+    @if $mq {
+        @media #{$mq} {
+            flex-basis: $width;
+        }
+    } @else {
+        flex-basis: $width;
+    }
+}
