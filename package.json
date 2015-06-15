@@ -1,0 +1,28 @@
+{
+  "name": "gigi",
+  "version": "1.0.0",
+  "description": "Use your semantic class names and give them a structure directly in your css using GiGi, the Grid Generator system for devs",
+  "style": "gigi.scss",
+  "main": "gigi.scss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/giacomozinetti/GiGi.git"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "style",
+    "grid",
+    "frontend",
+    "gigi",
+    "generator",
+    "semantic",
+    "devs"
+  ],
+  "author": "Giacomo Zinetti <giacomo.zinetti@giko.it> (https://giko.it)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giacomozinetti/GiGi/issues"
+  },
+  "homepage": "https://github.com/giacomozinetti/GiGi"
+}
