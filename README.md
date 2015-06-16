@@ -8,7 +8,7 @@ Use your semantic class names and give them a structure directly in your css usi
 
 ## Install
 
-npm install --save-dev gigi
+`$ npm install --save-dev gigi`
 
 ## Use
 
